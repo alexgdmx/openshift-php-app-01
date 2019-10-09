@@ -17,6 +17,7 @@ EXPOSE 80
 # Simple startup script to avoid some issues observed with container restart
 ADD run-httpd.sh /run-httpd.sh
 ADD index.php /var/www/html/index.php
+USER root
 RUN chmod -v +x /run-httpd.sh && \
     rm -rf /run/httpd/* /tmp/httpd*
 
