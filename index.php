@@ -1,5 +1,5 @@
 <?php
-echo "Hola" . "" . $_SERVER['HTTP_HOST']
+echo "Hola" . "" . $_SERVER['SERVER_NAME']
 
 
 ?>
