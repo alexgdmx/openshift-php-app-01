@@ -1,5 +1,5 @@
 <?php
-echo "Hola" . implode(" ",$_REQUEST)
+echo "Hola" . "" . $_SERVER['HTTP_HOST']
 
 
 ?>
