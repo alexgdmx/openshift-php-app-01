@@ -1,6 +1,5 @@
 <?php
-
-echo "Hola" . $_REQUEST
+echo "Hola" . $_REQUEST[]
 
 
 ?>
