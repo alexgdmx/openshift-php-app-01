@@ -1,0 +1,27 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: demo-01-docker
+spec:
+  runPolicy: Serial
+  triggers:
+    - type: GitHub
+      github:
+        secret: 34721224bb7386d7
+    - type: Generic
+      generic:
+        secret: bf403561dc8c78b8
+    - type: ImageChange
+  source:
+    git:
+      uri: 'https://github.com/alexgdmx/openshift-php-app-01.git'
+  strategy:
+    type: Docker
+    dockerStrategy:
+      from:
+        kind: DockerImage
+        name: 'php:7.1'
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'demo-01:latest'
