@@ -7,7 +7,9 @@ LABEL Vendor="CentOS" \
 
 
 RUN yum -y --setopt=tsflags=nodocs update && \
-    yum -y --setopt=tsflags=nodocs install httpd php && \
+    yum install epel-release yum-utils -y && \
+    yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm && \
+    yum -y --setopt=tsflags=nodocs install httpd php71 && \
     yum clean all
 
 EXPOSE 80
@@ -15,6 +17,7 @@ EXPOSE 80
 # Simple startup script to avoid some issues observed with container restart
 ADD run-httpd.sh /run-httpd.sh
 ADD index.php /var/www/html/index.php
-RUN chmod -v +x /run-httpd.sh
+RUN chmod -v +x /run-httpd.sh && \
+    rm -rf /run/httpd/* /tmp/httpd*
 
 CMD ["/run-httpd.sh"]
