@@ -8,7 +8,7 @@ LABEL Vendor="CentOS" \
 
 RUN yum -y --setopt=tsflags=nodocs update && \
     yum install epel-release yum-utils -y && \
-    yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm && \
+    yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm && \
     yum -y --setopt=tsflags=nodocs install httpd php71 && \
     yum clean all
 
