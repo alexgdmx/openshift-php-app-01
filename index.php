@@ -1,5 +1,5 @@
 <?php
-echo "Hola" . $_REQUEST[]
+echo "Hola" . var_dump($_REQUEST)
 
 
 ?>
