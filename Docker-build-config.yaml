@@ -20,8 +20,8 @@ spec:
     dockerStrategy:
       from:
         kind: DockerImage
-        name: 'php:7.1'
+        name: 'centos:7'
   output:
     to:
       kind: ImageStreamTag
-      name: 'demo-01:latest'
+      name: 'demo-01-docker:latest'
